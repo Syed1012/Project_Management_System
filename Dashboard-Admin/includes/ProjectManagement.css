@@ -1,0 +1,70 @@
+/* Add custom CSS to adjust the left margin of the sidebar */
+#sidebar {
+  margin-left: 20px;
+  /* You can adjust the value as needed */
+}
+
+/* Style for sidebar links */
+.nav-link-project {
+  padding: 20px 15px;
+  /* Increase padding for a wider button */
+  font-size: x-large;
+  color: #000;
+  /* Set text color to black */
+  background-color: brown;
+  /* Set background color to brown */
+  transition: background-color 0.3s ease, color 0.3s ease;
+  /* Add a smooth transition effect */
+  text-align: center;
+  /* Center text horizontally */
+  border-radius: 20px;
+  /* Add rounded corners */
+  margin-bottom: 10px;
+  /* Add space between links */
+  display: block;
+  /* Ensure each link takes up a full block */
+  text-decoration: none;
+}
+
+/* Change background color and text color on hover */
+.nav-link-project:hover {
+  background-color: black;
+  /* Change background color to black on hover */
+  color: white;
+  /* Change text color to white on hover */
+}
+
+/* Style for sidebar icons */
+.nav-link-icon {
+  margin-right: 10px;
+  /* Add space between icon and text */
+}
+
+/* Additional styles for improved aesthetics */
+.sidebar {
+  background-color: #fff;
+  /* Set sidebar background color to white */
+  border-right: 1px solid #e0e0e0;
+  /* Add a light border on the right */
+}
+
+/* Style for the disabled button */
+.disabled-button {
+  background-color: #ccc;
+  /* Gray background color */
+  color: #888;
+  /* Gray text color */
+  cursor: not-allowed;
+  /* Change cursor to 'not-allowed' */
+}
+
+.square-box {
+  width: 200px;
+  /* Set the width of the square */
+  height: 200px;
+  /* Set the height of the square */
+  background-color: #ccc;
+  /* Set the background color of the square */
+  margin: 0 auto;
+  /* Center the square horizontally */
+}

@@ -1,0 +1,85 @@
+.container {
+  margin-top: 60px;
+  margin-bottom: 5%;
+  box-shadow: 3px 3px 3px #b8acac, -3px -3px 3px #4f3e3e;
+  border-radius: 10px;
+}
+
+#form-header {
+  margin-top: 5%;
+  text-align: center;
+}
+
+#form-tagline {
+  background: brown;
+  border-top-left-radius: 0.5rem;
+  border-bottom-left-radius: 0.5rem;
+  color: #ffffff;
+  margin-top: 5%;
+  padding: 4%;
+  text-align: left;
+}
+
+.form-img {
+  margin-top: 130px;
+  width: 100%;
+  border-radius: 8px;
+  box-shadow: 3px 3px 3px #6b0101, -3px -3px 3px #fff;
+}
+
+#form-tagline .fa {
+  margin-bottom: 15%;
+}
+
+#form-tagline h2 {
+  margin-bottom: 15%;
+}
+
+#form-content {
+  background: #f4f4f4;
+  border-top-right-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+  margin-top: 5%;
+  padding: 3%;
+}
+
+.form-group {
+  margin-top: 5%;
+}
+
+.contact {
+  padding: 4%;
+  height: 400px;
+}
+
+.control-label {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+div .submit-button {
+  margin-top: 3%;
+  text-align: right;
+}
+
+button#submit {
+  white-space: normal;
+  background: brown;
+  color: black;
+  font-weight: bolder;
+  width: 25%;
+}
+
+/* #error-container {
+  margin-top: 20px;
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+  border-radius: 0.25rem;
+  padding: 10px 15px;
+}
+
+#error-message {
+  margin: 0;
+  font-size: 14px;
+} */
