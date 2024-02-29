@@ -162,17 +162,17 @@ if (isset($_GET['professor_id'])) {
 
 
 <script>
-    document.getElementById("submit").addEventListener("click", function () {
+    document.getElementById("submit").addEventListener("click", function() {
         var form = document.getElementById("update-form");
         var formData = new FormData(form);
 
         var xhr = new XMLHttpRequest();
-        xhr.open("POST", "update_panel.php", true);
-        xhr.onreadystatechange = function () {
+        xhr.open("POST", "process_edit_panel.php", true);
+        xhr.onreadystatechange = function() {
             if (xhr.readyState === XMLHttpRequest.DONE) {
                 if (xhr.status === 200) {
                     // Handle successful update
-                    alert("Details updated successfully!");
+                    alert("Details updated successfully please go to Dashboard!");
                 } else {
                     // Handle error
                     alert("Failed to update details. Please try again.");

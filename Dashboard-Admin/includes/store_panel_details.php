@@ -24,7 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $resultCheckPanel = mysqli_query($con, $sqlCheckPanel);
 
     if (mysqli_num_rows($resultCheckPanel) > 0) {
-        $response = array("success" => false, "error" => "Professor ID already exists in panels_list");
+        $response = array("success" => false, "error" => "This professor is already in a Panel");
         echo json_encode($response);
         exit();
     }
@@ -43,7 +43,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $sqlCheckSpoc = "SELECT * FROM panels_list WHERE panel_id = '$panelId' AND spoc = 'Yes'";
     $resultCheckSpoc = mysqli_query($con, $sqlCheckSpoc);
 
-    if (mysqli_num_rows($resultCheckSpoc) > 0) {
+    if (mysqli_num_rows($resultCheckSpoc) > 0 && $spoc === 'Yes') {
         $response = array("success" => false, "error" => "A SPOC is already allocated for this panel");
         echo json_encode($response);
         exit();
@@ -54,12 +54,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $resultInsert = mysqli_query($con, $sqlInsert);
 
     if ($resultInsert) {
-        echo "Data inserted successfully";
-        echo "<script>window.location.reload();</script>";
         $response = array("success" => true);
         echo json_encode($response);
+        exit();
     } else {
-        echo "Error: " . mysqli_error($con);
+        $response = array("success" => false, "error" => "Error inserting data into database");
+        echo json_encode($response);
+        exit();
     }
 }
 

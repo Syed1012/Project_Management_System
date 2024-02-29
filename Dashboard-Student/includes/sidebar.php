@@ -110,8 +110,8 @@ $reg_id = $_SESSION['reg_id'];
                 } else {
                     // If $user_name is not set, fetch it from the database using the logged-in user's reg_id
 
-                    // Fetch the user_name from the user_details table
-                    $fetch_username_query = "SELECT user_name FROM user_details WHERE reg_id=?";
+                    // Fetch the user_name from the users table
+                    $fetch_username_query = "SELECT user_name FROM users WHERE reg_id=?";
                     $stmt = mysqli_prepare($con, $fetch_username_query);
                     mysqli_stmt_bind_param($stmt, "s", $reg_id);
                     mysqli_stmt_execute($stmt);

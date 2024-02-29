@@ -11,7 +11,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_SESSION['reg_id'])) {
     $phone_number = $_POST['inputPhone'];
 
     // Check if the user exists in the user_details table
-    $check_query = "SELECT COUNT(*) FROM user_details WHERE reg_id=?";
+    $check_query = "SELECT COUNT(*) FROM users WHERE reg_id=?";
     $stmt = mysqli_prepare($con, $check_query);
     mysqli_stmt_bind_param($stmt, "s", $reg_id);
     mysqli_stmt_execute($stmt);
@@ -21,12 +21,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_SESSION['reg_id'])) {
 
     if ($user_count > 0) {
         // User profile already exists, update the existing data
-        $update_query = "UPDATE user_details SET user_name=?, first_name=?, last_name=?, email=?, phone_number=? WHERE reg_id=?";
+        $update_query = "UPDATE users SET user_name=?, first_name=?, last_name=?, email=?, phone_number=? WHERE reg_id=?";
         $stmt = mysqli_prepare($con, $update_query);
         mysqli_stmt_bind_param($stmt, "ssssss", $user_name, $first_name, $last_name, $email, $phone_number, $reg_id);
     } else {
         // User profile does not exist, insert a new profile
-        $insert_query = "INSERT INTO user_details (reg_id, user_name, first_name, last_name, email, phone_number) VALUES (?, ?, ?, ?, ?, ?)";
+        $insert_query = "INSERT INTO users (reg_id, user_name, first_name, last_name, email, phone_number) VALUES (?, ?, ?, ?, ?, ?)";
         $stmt = mysqli_prepare($con, $insert_query);
         mysqli_stmt_bind_param($stmt, "ssssss", $reg_id, $user_name, $first_name, $last_name, $email, $phone_number);
     }

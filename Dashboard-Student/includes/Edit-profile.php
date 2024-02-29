@@ -1,22 +1,18 @@
 <?php
-
-// At the beginning of the Edit-profile.php page, before using it in the form:
 include('../../dbcon.php');
-session_start(); // Make sure to start the session
+session_start();
 
 if (!isset($_SESSION['reg_id'])) {
-    header("Location: ../../login.php"); // Redirect to the login page
+    header("Location: ../../login.php");
     exit();
 }
 
-
-$reg_id = $_SESSION['reg_id']; // Retrieve the reg_id from the session
+$reg_id = $_SESSION['reg_id'];
 
 if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_SESSION['reg_id'])) {
     $reg_id = $_SESSION['reg_id'];
 
-    // Check if the user exists in the user_details table
-    $check_query = "SELECT COUNT(*) FROM user_details WHERE reg_id=?";
+    $check_query = "SELECT COUNT(*) FROM users WHERE reg_id=?";
     $stmt = mysqli_prepare($con, $check_query);
     mysqli_stmt_bind_param($stmt, "s", $reg_id);
     mysqli_stmt_execute($stmt);
@@ -25,8 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_SESSION['reg_id'])) {
     mysqli_stmt_close($stmt);
 
     if ($user_count > 0) {
-        // User profile already exists, fetch the existing data
-        $fetch_query = "SELECT user_name, first_name, last_name, email, phone_number FROM user_details WHERE reg_id=?";
+        $fetch_query = "SELECT user_name, first_name, last_name, email, phone_number FROM users WHERE reg_id=?";
         $stmt = mysqli_prepare($con, $fetch_query);
         mysqli_stmt_bind_param($stmt, "s", $reg_id);
         mysqli_stmt_execute($stmt);
@@ -34,7 +29,6 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_SESSION['reg_id'])) {
         mysqli_stmt_fetch($stmt);
         mysqli_stmt_close($stmt);
     } else {
-        // User profile does not exist, initialize variables
         $user_name = "";
         $first_name = "";
         $last_name = "";
@@ -42,11 +36,9 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_SESSION['reg_id'])) {
         $phone_number = "";
     }
 } else {
-    // Redirect to an error page or take appropriate action for missing reg_id
     header("Location: error.php");
     exit();
 }
-
 ?>
 
 <head>
@@ -130,9 +122,10 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_SESSION['reg_id'])) {
             background-color: brown;
             color: white;
             font-weight: bold;
+            margin-left: 350px;
         }
 
-        
+
 
         /* Update button shadow */
         .bt {
@@ -152,11 +145,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_SESSION['reg_id'])) {
         }
     </style>
 
-    <?php
-
-    include('header.php');
-
-    ?>
+    <?php include('header.php'); ?>
 
     <div class="container-xl px-4 mt-4">
         <hr class="mt-0 mb-4">
@@ -164,7 +153,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_SESSION['reg_id'])) {
             <!-- Account details card-->
             <div class="col-xl-8">
                 <div class="card mb-4">
-                    <div class="card-header justify-content-center">Account Details</div>
+                    <div class="card-header">Account Details</div>
                     <div class="card-body">
                         <form method="POST" action="update_profile.php">
                             <!-- Form Group (username)-->
@@ -190,30 +179,19 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_SESSION['reg_id'])) {
 
                             <!-- Form Row -->
                             <div class="row gx-3 mb-3">
-                                <!-- Form Group (Reg. ID)-->
-                                <div class="col-md-6">
-                                    <label class="small mb-1" for="reg_id">Registration ID</label>
-                                    <input class="form-control" id="reg_id" name="reg_id" type="text" placeholder="Enter your Reg. ID" value="<?php echo $reg_id; ?>" readonly>
-                                </div>
+
                                 <!-- Form Group (Email ID)-->
                                 <div class="col-md-6">
                                     <label class="small mb-1" for="inputEmail">Email Address</label>
                                     <input class="form-control" id="inputEmail" name="inputEmail" type="text" placeholder="Enter your Email" value="<?php echo htmlspecialchars($email); ?>">
                                 </div>
-                            </div>
-                            <!-- Form Row-->
-                            <div class="row gx-3 mb-3">
                                 <!-- Form Group (phone number)-->
                                 <div class="col-md-6">
                                     <label class="small mb-1" for="inputPhone">Phone number</label>
                                     <input class="form-control" id="inputPhone" name="inputPhone" type="tel" placeholder="Enter your phone number" value="<?php echo htmlspecialchars($phone_number); ?>">
                                 </div>
-
-                                <div class="col-md-6">
-                                    <!-- Save changes button-->
-                                    <button class="bt btn-primar mt-4" type="submit" name="update_profile">Save changes</button>
-                                </div>
                             </div>
+                            <button class="bt btn-primar mt-4" type="submit" name="update_profile">Save changes</button>
                             <br>
                         </form>
                         <!-- Change Password Form -->

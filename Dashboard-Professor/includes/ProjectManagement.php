@@ -7,9 +7,6 @@ if (!isset($_SESSION['reg_id'])) {
 }
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -18,8 +15,9 @@ if (!isset($_SESSION['reg_id'])) {
     <meta name="author" content="">
     <title>Project Management - Admin</title>
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet">
-    <link href="../css/styles.css" rel="stylesheet">
+    <link href="ProjectManagement.css" rel="stylesheet">
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+
     <style>
         /* Add custom CSS to adjust the left margin of the sidebar */
         #sidebar {
@@ -70,48 +68,60 @@ if (!isset($_SESSION['reg_id'])) {
             border-right: 1px solid #e0e0e0;
             /* Add a light border on the right */
         }
+
+        /* Style for the disabled button */
+        .disabled-button {
+            background-color: #ccc;
+            /* Gray background color */
+            color: #888;
+            /* Gray text color */
+            cursor: not-allowed;
+            /* Change cursor to 'not-allowed' */
+        }
+
+        .square-box {
+            width: 200px;
+            /* Set the width of the square */
+            height: 200px;
+            /* Set the height of the square */
+            background-color: #ccc;
+            /* Set the background color of the square */
+            margin: 0 auto;
+            /* Center the square horizontally */
+        }
     </style>
 </head>
 
-<body>
-    <?php include('header.php'); ?>
 
-    <div class="container mt-5">
+<?php include('header.php'); ?>
 
-   
-
-    <!-- Sidebar -->
-    <nav id="sidebar" class="col-md-3 col-lg-2 d-md-block bg-light sidebar mt-5">
-        <div class="position-sticky">
-            <ul class="nav flex-column">
-                <li class="nav-item-projects">
-                    <a class="nav-link-project" href="Show_Projects.php">
-                        <span class="nav-link-icon"><i class="fas fa-eye"></i></span> Show Projects
-                    </a>
-                </li>
-                <li class="nav-item-projects">
-                    <a class="nav-link-project" href="Create_Project.php">
-                        <span class="nav-link-icon"><i class="fas fa-plus-circle"></i></span> Create Project
-                    </a>
-                </li>
-                <li class="nav-item-projects">
-                    <a class="nav-link-project" href="Edit_Projects.php">
-                        <span class="nav-link-icon"><i class="fas fa-edit"></i></span> Edit Projects
-                    </a>
-                </li>
-                <li class="nav-item-projects">
-                    <a class="nav-link-project" href="Project_Reviews.php">
-                        <span class="nav-link-icon"><i class="fas fa-star"></i></span> Project Reviews
-                    </a>
-                </li>
-            </ul>
+<div class="container mt-5">
+    <div class="square-box" style="margin-top:150px; width:450px; height: 340px; padding:20px; border-radius: 10px;">
+        <!-- Item 1 -->
+        <div class="mb-3">
+            <a class="nav-link-project mt-3" href="Show_Projects.php">
+                <span class="nav-link-icon"><i class="fa-solid fa-eye"></i></span> Show Project
+            </a>
         </div>
-    </nav>
-    </div>
-    <!-- Rest of your HTML content -->
 
-    <?php include('footer.php'); ?>
-    <?php include('scripts.php'); ?>
-</body>
+        <div>
+            <!-- Your second item content goes here -->
+            <a class="nav-link-project mt-3" href="Create_Project.php">
+                <span class="nav-link-icon"><i class="fa-solid fa-square-plus"></i></span> Create Project
+            </a>
+        </div>
+
+        <div>
+            <!-- Your third item content goes here -->
+            <a class="nav-link-project mt-3" href="Edit_Projects.php">
+                <span class="nav-link-icon"><i class="fa-solid fa-user-pen"></i></span> Edit Projects
+            </a>
+        </div>
+    </div>
+</div>
+
+<?php include('footer.php'); ?>
+<?php include('scripts.php'); ?>
+
 
 </html>

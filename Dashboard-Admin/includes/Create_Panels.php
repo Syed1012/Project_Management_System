@@ -159,6 +159,13 @@ include('header.php');
             <div id="error-container" style="display: none;">
                 <p id="error-message"></p>
             </div>
+
+            <!-- -------------- Success Message Container ------------------- -->
+            <div id="success-container" style="display: none;">
+                <p id="success-message">Panel added successfully!</p>
+            </div>
+            <!-- END -->
+
             <!-- END -->
         </div>
         <!-- close form content div -->
@@ -198,6 +205,13 @@ include('header.php');
             if (this.readyState == 4 && this.status == 200) {
                 var response = JSON.parse(this.responseText);
                 if (response.success) {
+                    resetForm(); // Reset form fields
+                    // Show success message
+                    var successMessage = document.getElementById('success-message');
+                    successMessage.innerText = "Panel added successfully!";
+                    document.getElementById('success-container').style.display = 'block';
+                    // Hide success message after 3 seconds
+                    setTimeout(hideMessages, 2000);
                     // Redirect or show a success message here
                     console.log("Data inserted successfully");
                 } else {
@@ -205,12 +219,23 @@ include('header.php');
                     var errorMessage = document.getElementById('error-message');
                     errorMessage.innerText = response.error;
                     document.getElementById('error-container').style.display = 'block';
+                    // Hide error message after 3 seconds
+                    setTimeout(hideMessages, 2000);
                 }
             }
         };
         xhttp.open("POST", "store_panel_details.php", true);
         xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         xhttp.send("professor_id=" + professorId + "&professor_name=" + professorName + "&panel_id=" + panelId + "&professor_email=" + professorEmail + "&phone_number=" + phoneNumber + "&spoc=" + spoc);
+    }
+
+    function resetForm() {
+        document.getElementById('survey-form').reset();
+    }
+
+    function hideMessages() {
+        document.getElementById('error-container').style.display = 'none';
+        document.getElementById('success-container').style.display = 'none';
     }
 </script>
 
