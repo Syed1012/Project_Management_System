@@ -173,6 +173,7 @@ include('header.php');
 
     </table>
     <button class="submit-btn">Publish Attendance</button>
+    <button class="submit-btn ml-3">Reset Attendance</button>
 </div>
 
 <script>
