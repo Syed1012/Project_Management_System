@@ -208,7 +208,6 @@ include('header.php');
     });
 </script>
 
-
 <?php
 include('scripts.php');
 ?>

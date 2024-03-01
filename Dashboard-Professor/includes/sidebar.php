@@ -71,8 +71,7 @@ $reg_id = $_SESSION['reg_id'];
                 </a>
                 <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                     <nav class="sb-sidenav-menu-nested nav">
-                        <a class="nav-link" href="layout-static.html">Project's-Progress</a>
-                        <a class="nav-link" href="layout-sidenav-light.html">Review's</a>
+                        <a class="nav-link" href="ShowPanels.php">Show Panels</a>
                     </nav>
                 </div>
 
@@ -83,22 +82,14 @@ $reg_id = $_SESSION['reg_id'];
                 </a>
                 <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
                     <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
+                        <a class="nav-link" href="Project_Progress.php">
+                            <div class="sb-nav-link-icon"><i class="fa-regular fa-folder"></i></div>
+                            Project Progress
+                        </a>
                         <a class="nav-link" href="Attendance.php">
                             <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
-                            Attendance
+                            Review-Attendance
                         </a>
-
-                        <!-- <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseError" aria-expanded="false" aria-controls="pagesCollapseError">
-                            Project Progress
-                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                        </a>
-                        <div class="collapse" id="pagesCollapseError" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
-                            <nav class="sb-sidenav-menu-nested nav">
-                                <a class="nav-link" href="401.html">Project Assigned</a>
-                                <a class="nav-link" href="404.html">Project Review 1</a>
-                                <a class="nav-link" href="500.html">Project Review 2</a>
-                            </nav>
-                        </div> -->
                     </nav>
                 </div>
 
