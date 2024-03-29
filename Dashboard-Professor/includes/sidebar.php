@@ -71,7 +71,7 @@ $reg_id = $_SESSION['reg_id'];
                 </a>
                 <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                     <nav class="sb-sidenav-menu-nested nav">
-                        <a class="nav-link" href="ShowPanels.php">Show Panels</a>
+                        <a class="nav-link" href="Show_panels.php">Show Panels</a>
                     </nav>
                 </div>
 
