@@ -168,7 +168,7 @@ if ($result->num_rows > 0) {
                             include("../../dbcon.php");
 
                             // Fetch only project_id where record_status is 1
-                            $sql_projects = "SELECT project_id FROM projects WHERE project_status = 1";
+                            $sql_projects = "SELECT project_id FROM projects WHERE project_status = 'Av'";
                             $result_projects = $con->query($sql_projects);
 
                             if ($result_projects->num_rows > 0) {
@@ -254,6 +254,18 @@ if ($result->num_rows > 0) {
         var professorEmail = document.getElementById('professor_email').value;
         var professorPhone = document.getElementById('phone_number').value;
         var projectId = document.getElementById('project_id').value;
+
+
+        // Check if any of the student names or IDs are empty
+        if (
+            studentName1.trim() === '' || studentId1.trim() === '' ||
+            studentName2.trim() === '' || studentId2.trim() === '' ||
+            studentName3.trim() === '' || studentId3.trim() === '' ||
+            studentName4.trim() === '' || studentId4.trim() === ''
+        ) {
+            alert('Please fill in all student names and registration IDs');
+            return; // Do not submit the form
+        }
 
         // Make an AJAX request to process_group_allocation.php
         var xhr = new XMLHttpRequest();
