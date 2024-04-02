@@ -1,127 +1,134 @@
 <?php
 session_start();
+include('../../dbcon.php');
 
 if (!isset($_SESSION['reg_id'])) {
-    header("Location: ../../login.php"); // Redirect to the login page
+    header("Location: ../../login.php");
     exit();
 }
 ?>
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
     <title>Project Management - Admin</title>
-    <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet">
-    <link href="ProjectManagement.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/css/bootstrap.min.css">
+    <!-- <link href="groups.css" rel="stylesheet" /> -->
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
-
-    <style>
-        /* Add custom CSS to adjust the left margin of the sidebar */
-        #sidebar {
-            margin-left: 20px;
-            /* You can adjust the value as needed */
-        }
-
-        /* Style for sidebar links */
-        .nav-link-project {
-            padding: 20px 15px;
-            /* Increase padding for a wider button */
-            font-size: x-large;
-            color: #000;
-            /* Set text color to black */
-            background-color: brown;
-            /* Set background color to brown */
-            transition: background-color 0.3s ease, color 0.3s ease;
-            /* Add a smooth transition effect */
-            text-align: center;
-            /* Center text horizontally */
-            border-radius: 20px;
-            /* Add rounded corners */
-            margin-bottom: 10px;
-            /* Add space between links */
-            display: block;
-            /* Ensure each link takes up a full block */
-            text-decoration: none;
-        }
-
-        /* Change background color and text color on hover */
-        .nav-link-project:hover {
-            background-color: black;
-            /* Change background color to black on hover */
-            color: white;
-            /* Change text color to white on hover */
-        }
-
-        /* Style for sidebar icons */
-        .nav-link-icon {
-            margin-right: 10px;
-            /* Add space between icon and text */
-        }
-
-        /* Additional styles for improved aesthetics */
-        .sidebar {
-            background-color: #fff;
-            /* Set sidebar background color to white */
-            border-right: 1px solid #e0e0e0;
-            /* Add a light border on the right */
-        }
-
-        /* Style for the disabled button */
-        .disabled-button {
-            background-color: #ccc;
-            /* Gray background color */
-            color: #888;
-            /* Gray text color */
-            cursor: not-allowed;
-            /* Change cursor to 'not-allowed' */
-        }
-
-        .square-box {
-            width: 200px;
-            /* Set the width of the square */
-            height: 200px;
-            /* Set the height of the square */
-            background-color: #ccc;
-            /* Set the background color of the square */
-            margin: 0 auto;
-            /* Center the square horizontally */
-        }
-    </style>
 </head>
 
+<style>
+    .nav-link-project {
+        padding: 20px 15px;
+        font-size: x-large;
+        color: #000;
+        background-color: brown;
+        transition: background-color 0.3s ease, color 0.3s ease;
+        text-align: center;
+        border-radius: 20px;
+        margin-bottom: 10px;
+        display: block;
+        text-decoration: none;
+    }
 
-<?php include('header.php'); ?>
+    /* Change background color and text color on hover */
+    .nav-link-project:hover {
+        background-color: black;
+        color: white;
+    }
+
+    /* Style for sidebar icons */
+    .nav-link-icon {
+        margin-right: 10px;
+    }
+
+    /* Additional styles for improved aesthetics */
+    .sidebar {
+        background-color: #fff;
+        border-right: 1px solid #e0e0e0;
+    }
+
+    .square-box {
+        position: absolute;
+        top: 50%;
+        left: 55%;
+        transform: translate(-50%, -50%);
+        width: 450px;
+        height: 320px;
+        padding: 20px;
+        border-radius: 10px;
+        background-color: #fff;
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    }
+
+    .square-box:hover {
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.16), 0 4px 10px rgba(0, 0, 0, 0.23);
+    }
+
+    #editPanelForm {
+        display: none;
+        /* Hide the form initially */
+        width: 100%;
+        display: block;
+        border: none;
+        outline: none;
+        background: none;
+        font-size: 1.2rem;
+        color: #000000;
+        padding: 10px 15px 10px 10px;
+        border-radius: 10px;
+    }
+
+    .inpu {
+        width: 88%;
+        margin-left: 5px;
+        border-radius: 20px;
+        text-align: center;
+        box-shadow: inset 8px 8px 8px #cbced1, inset -8px -8px 8px #fff;
+    }
+
+    .goButton {
+        background-color: brown;
+        border-radius: 20px;
+    }
+</style>
+
+<?php
+include('header.php');
+?>
 
 <div class="container mt-5">
-    <div class="square-box" style="margin-top:150px; width:450px; height: 340px; padding:20px; border-radius: 10px;">
+    <div class="square-box">
         <!-- Item 1 -->
         <div class="mb-3">
             <a class="nav-link-project mt-3" href="Show_Projects.php">
-                <span class="nav-link-icon"><i class="fa-solid fa-eye"></i></span> Show Project
+                <span class="nav-link-icon"><i class="fa-solid fa-eye"></i></span> Show Projects
             </a>
         </div>
 
         <div>
             <!-- Your second item content goes here -->
             <a class="nav-link-project mt-3" href="Create_Project.php">
-                <span class="nav-link-icon"><i class="fa-solid fa-square-plus"></i></span> Create Project
+                <span class="nav-link-icon"><i class="fa fa-square-plus"></i></span> Create Project
             </a>
         </div>
 
         <div>
-            <!-- Your third item content goes here -->
+            <!-- Your second item content goes here -->
             <a class="nav-link-project mt-3" href="Edit_Projects.php">
-                <span class="nav-link-icon"><i class="fa-solid fa-user-pen"></i></span> Edit Projects
+                <span class="nav-link-icon"><i class="fa-solid fa-user-pen"></i></span> Edit Project
             </a>
         </div>
     </div>
 </div>
 
-<?php include('footer.php'); ?>
-<?php include('scripts.php'); ?>
+
+<?php
+include('scripts.php');
+?>
 
 
 </html>
