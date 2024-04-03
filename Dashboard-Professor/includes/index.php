@@ -26,6 +26,8 @@ if (!isset($_SESSION['reg_id']) || $_SESSION['role'] !== 'professor') {
     .table,
     .groupid {
       margin-top: 30px;
+      border-radius: 10px;
+      box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     }
   </style>
 </head>
@@ -39,37 +41,127 @@ if (!isset($_SESSION['reg_id']) || $_SESSION['role'] !== 'professor') {
   <h4 class="projectlist">All Project's</h4>
 
   <table class="table">
-    <?php 
+    <?php
 
     ?>
-    <h5 class="groupid">Group ID - </h5>
-    <h5 class="groupid">Project Name - </h5>
+    <h5 class="groupid">Group ID - P2120</h5>
+    <h5 class="groupid">Project Name - Bluetooth Arduino Noticeboard</h5>
     <thead class="thead-dark">
       <tr>
         <th scope="col">#</th>
         <th scope="col">Student's Name</th>
         <th scope="col">Email</th>
-        <th scope="col">Progress </th>
+        <th scope="col">Phone</th>
       </tr>
     </thead>
     <tbody class="table-danger">
       <tr>
         <th scope="row">1</th>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>@mdo</td>
+        <td>Rajesh</td>
+        <td>Suchit</td>
+        <td>+91 98745678765</td>
       </tr>
       <tr>
         <th scope="row">2</th>
-        <td>Jacob</td>
-        <td>Thornton</td>
-        <td>@fat</td>
+        <td>rchandal@gmail.com</td>
+        <td>such@gmail.com</td>
+        <td>+91 7653234567</td>
       </tr>
       <tr>
         <th scope="row">3</th>
-        <td>Larry</td>
-        <td>the Bird</td>
-        <td>@twitter</td>
+        <td>Ravi</td>
+        <td>ravi@gmail.com</td>
+        <td>+91 3456798766</td>
+      </tr>
+      <tr>
+        <th scope="row">4</th>
+        <td>Hari</td>
+        <td>hari@gmail.com</td>
+        <td>+91 7653234567</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <table class="table">
+    <?php
+
+    ?>
+    <h5 class="groupid">Group ID - P2131</h5>
+    <h5 class="groupid">Project Name - Online Swap card</h5>
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Student's Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Phone</th>
+      </tr>
+    </thead>
+    <tbody class="table-danger">
+      <tr>
+        <th scope="row">1</th>
+        <td>Rajesh</td>
+        <td>Suchit</td>
+        <td>+91 98745678765</td>
+      </tr>
+      <tr>
+        <th scope="row">2</th>
+        <td>rchandal@gmail.com</td>
+        <td>such@gmail.com</td>
+        <td>+91 7653234567</td>
+      </tr>
+      <tr>
+        <th scope="row">3</th>
+        <td>Ravi</td>
+        <td>ravi@gmail.com</td>
+        <td>+91 3456798766</td>
+      </tr>
+      <tr>
+        <th scope="row">4</th>
+        <td>Hari</td>
+        <td>hari@gmail.com</td>
+        <td>+91 7653234567</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <table class="table">
+    <?php
+
+    ?>
+    <h5 class="groupid">Group ID - P2410</h5>
+    <h5 class="groupid">Project Name - Automatic Dispenser</h5>
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Student's Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Phone</th>
+      </tr>
+    </thead>
+    <tbody class="table-danger">
+      <tr>
+        <th scope="row">1</th>
+        <td>Rajesh</td>
+        <td>Suchit</td>
+        <td>+91 98745678765</td>
+      </tr>
+      <tr>
+        <th scope="row">2</th>
+        <td>rchandal@gmail.com</td>
+        <td>such@gmail.com</td>
+        <td>+91 7653234567</td>
+      </tr>
+      <tr>
+        <th scope="row">3</th>
+        <td>Ravi</td>
+        <td>ravi@gmail.com</td>
+        <td>+91 3456798766</td>
+      </tr>
+      <tr>
+        <th scope="row">4</th>
+        <td>Hari</td>
+        <td>hari@gmail.com</td>
+        <td>+91 7653234567</td>
       </tr>
     </tbody>
   </table>

@@ -9,8 +9,22 @@ if (!isset($_SESSION['reg_id'])) {
 // Include your database connection code here
 include('../../dbcon.php');
 
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Process the form data and update the attendance table
+    foreach ($_POST['status'] as $studentId => $status) {
+        $sql = "INSERT INTO attendance (name, phone, email, reg_id, date, status) VALUES (?, ?, ?, ?, ?, ?)";
+        $stmt = $con->prepare($sql);
+        $stmt->bind_param("ssssss", $_POST['name'][$studentId], $_POST['phone'][$studentId], $_POST['email'][$studentId], $studentId, $_POST['date'], $status);
+        $stmt->execute();
+    }
+
+    // Redirect the user to index.php after updating attendance
+    header("Location: index.php");
+    exit();
+}
+
 // Query to fetch student details from users table
-$sql = "SELECT user_name, reg_id, phone_number, email FROM users WHERE role = 'student'";
+$sql = "SELECT user_name, phone_number, email, reg_id FROM users WHERE role = 'student'";
 $result = mysqli_query($con, $sql);
 
 mysqli_close($con);
@@ -128,7 +142,7 @@ mysqli_close($con);
             border-radius: 10px;
         }
 
-        .submit-btn:hover{
+        .submit-btn:hover {
             box-shadow: 10px 10px 0px brown;
             top: -5px;
             left: -5px;
@@ -141,6 +155,8 @@ mysqli_close($con);
 <?php
 include('header.php');
 ?>
+
+<form method="post">
 
 <div class="container">
 
