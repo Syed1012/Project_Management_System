@@ -27,7 +27,9 @@ if (!isset($_SESSION['reg_id']) || $_SESSION['role'] !== 'professor') {
     .groupid {
       margin-top: 30px;
       border-radius: 10px;
+      padding: 10px;
       box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+      /* font-weight: bold; */
     }
   </style>
 </head>
