@@ -7,7 +7,7 @@
         </button>
 
         <!-- Navbar Brand (centered) -->
-        <a class="navbar-brand mx-auto text-white" href="index.php">GITAM PMS</a>
+        <a class="navbar-brand mx-auto text-white" href="index.php">Final-Year PMS</a>
 
         <!-- Notification Icon -->
         <button class="btn btn-link btn-lg order-0 me-4 me-lg-0 mt-1 mr-2" id="notificationIcon" href="#!">

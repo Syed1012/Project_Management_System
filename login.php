@@ -205,7 +205,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <img src="assets/Images/GITAM-logo.jpg" alt="" />
     </div>
 
-    <div class="text-center mt-4 name">GITAM PMS</div>
+    <div class="text-center mt-4 name">Final-Year PMS</div>
     <br>
 
     <!-- ----------------- Reg ID ---------------------- -->
