@@ -202,7 +202,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <div class="wrapper py-5">
     <div class="logo">
-        <img src="assets/Images/GITAM-logo.jpg" alt="" />
+        <img src="assets/Images/logo.png" alt="" />
     </div>
 
     <div class="text-center mt-4 name">Final-Year PMS</div>
