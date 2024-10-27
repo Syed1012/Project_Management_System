@@ -1,4 +1,4 @@
-# FPMS - Final Year Project Management System 🎓
+# PMS - Project Management System 🎓
 
 FPMS is a web-based project management system built to automate manual tasks involved in managing final year projects. It simplifies the process of assigning projects to students, forming panel members for project reviews, tracking student attendance at reviews, allocating review marks, and managing user details.
 
