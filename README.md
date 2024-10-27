@@ -1,10 +1,10 @@
 # PMS - Project Management System 🎓
 
-FPMS is a web-based project management system built to automate manual tasks involved in managing final year projects. It simplifies the process of assigning projects to students, forming panel members for project reviews, tracking student attendance at reviews, allocating review marks, and managing user details.
+PMS is a web-based project management system built to automate manual tasks involved in managing final year projects. It simplifies the process of assigning projects to students, forming panel members for project reviews, tracking student attendance at reviews, allocating review marks, and managing user details.
 
 ## Features
 
-- **Role-based Access Control**: Separate roles for admin (HOD and senior staff), professor, and student to manage access to sensitive information.
+- **Role-based Access Control(RBAC)**: Separate roles for admin (HOD and senior staff), professor, and student to manage access to sensitive information.
 - **Project Management**: CRUD operations for creating, updating, and managing project details, availability, and visibility.
 - **Panel Formation**: Form panels of faculty members for project reviews.
 - **Attendance Tracking**: Track student attendance at project reviews.
